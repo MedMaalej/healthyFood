@@ -1,0 +1,55 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addFoodRestaurant();">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+ 		    <th>Food</th>
+		    <th>Restaurant</th>
+                    <th>Food picture</th>
+		    <th>Food calories</th>	
+                    <th width="120px">Action</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td>
+                    <select name="foods">
+                       <% foods.forEach(function(food){ %>
+			<%= food.foodName %>
+		      <% })%>
+                    </select> 
+                    </td>
+		    <td><%=data[i].idRestaurant%></td>
+                    <td><img src="/../images/<%=data[i].foodPictureURL%>" height="100" width="100"/></td>
+		    <td><%=data[i].foodNumberOfCalories%></td>
+                    <td>
+                        <a class="a-inside edit" href="../foods_restaurants/edit/<%=data[i].id%>">Edit</a>
+                       
+                        <a class="a-inside delete" href="../foods_restaurants/delete/<%=data[i].id%>">Delete</a>
+                       
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>

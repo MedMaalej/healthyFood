@@ -1,0 +1,45 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addFood();">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Food name</th>
+		    <th>Food type</th>	
+                    <th width="120px">Action</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].foodName%></td>
+		    <td><%=data[i].foodType%></td>
+                    <td>
+                        <a class="a-inside edit" href="../foods/edit/<%=data[i].foodId%>">Edit</a>
+                       
+                        <a class="a-inside delete" href="../foods/delete/<%=data[i].foodId%>">Delete</a>
+                       
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>

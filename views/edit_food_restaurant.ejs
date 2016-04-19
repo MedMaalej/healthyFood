@@ -1,0 +1,34 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/foods_restaurants/edit/<%=data[0].id%>">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">Food</td><td> <input type="text" name="idFood" value="<%=data[0].idFood%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Restaurant</td><td> <input type="text" name="idRestaurant" value="<%=data[0].idRestaurant%>" required></td>
+                 </tr>
+                
+                <tr>
+                    <td class="label">Food picture</td><td> <input type="file" value="<%=data[0].foodPictureURL%>" name="foodPictureURL" accept="image/*" required></td>
+                 </tr>
+		<tr>
+                    <td class="label">Number of calories</td><td> <input type="text" name="foodNumberOfCalories" value="<%=data[0].foodNumberOfCalories%>" required></td>
+                 </tr>
+                
+                 
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" ">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>
